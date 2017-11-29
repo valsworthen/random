@@ -73,7 +73,7 @@ sudo apt-get update
 sudo apt-get install libglu1-mesa libxi-dev libxmu-dev -y  
 ```
 ### Install the nvidia driver for your gpu.
-You may find the link on the Nvidia website.  
+You may find the link for the correct driver on [the Nvidia website](http://www.nvidia.fr/Download/index.aspx).  
 ```bash
 wget LINK/TO/DRIVER  
 
@@ -86,7 +86,7 @@ nvidia-smi
 ```
 ### Download and install Cuda:  
 CUDA is a large file to download (~1.5Gb)  
-You can find the download link for the appropriate version [here](https://developer.nvidia.com/cuda-downloads)  
+You can find the download link for the appropriate version [here (link to CUDA 8)](https://developer.nvidia.com/cuda-80-ga2-download-archive)  
 
 **Please note that Tensorflow 1.4 IS NOT compatible with CUDA 9**
 ```bash
