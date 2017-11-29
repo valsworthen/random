@@ -1,5 +1,7 @@
 This tutorial aims to configure a Deep Learning AMI on AWS from a basic Ubuntu installation.  
 
+I may try to adapt it for an installation on a __local__ ubuntu distribution. In particular this second case requires to shut down lightdm during the CUDA installation part! [(see here until step 14)](https://kislayabhi.github.io/Installing_CUDA_with_Ubuntu/)  
+
 # Basic AMI configuration
 
 Select the **Ubuntu Server 16.04 LTS (HVM), SSD Volume Type - ami-df8406b0** AMI
@@ -75,7 +77,7 @@ sudo apt-get install libglu1-mesa libxi-dev libxmu-dev -y
 ### Install the nvidia driver for your gpu.
 You may find the link for the correct driver on [the Nvidia website](http://www.nvidia.fr/Download/index.aspx).  
 ```bash
-wget LINK/TO/DRIVER  
+wget LINK/TO/DRIVER  #should be a .run file
 
 sudo chmod +x NVIDIA-/DRIVER/FILE.run  
 ./NVIDIA-/DRIVER/FILE.run  
@@ -84,15 +86,19 @@ Test if driver is correctly installed:
 ```bash
 nvidia-smi  
 ```
-### Download and install Cuda:  
+### Download and install Cuda:
+**Please note that Tensorflow 1.4 IS NOT compatible with CUDA 9**   
 CUDA is a large file to download (~1.5Gb)  
 You can find the download link for the appropriate version [here (link to CUDA 8)](https://developer.nvidia.com/cuda-80-ga2-download-archive)  
-
-**Please note that Tensorflow 1.4 IS NOT compatible with CUDA 9**
 ```bash
-wget LINK/TO/CUDA.RUN  
+wget LINK/TO/CUDA.RUN   #should be a .run file  
+```  
+
+Make sure **NOT TO INSTALL THE DRIVER FROM CUDA** since you already installed a newer version earlier.  
+
+```bash
 sudo chmod +x cuda_VERSION_linux.run  
-./cuda_VERSION_linux.run  
+./cuda_VERSION_linux.run  #maybe you'll need to add --override
 ```
 Modify bashrc to add CUDA libraries to the PATH:  
 ```bash
