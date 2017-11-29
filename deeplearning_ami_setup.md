@@ -147,7 +147,7 @@ source ~/tensorflow/bin/activate
 pip3 install --upgrade tensorflow-gpu --user
 ```
 Then test the installation with the following python script:  
-```bash
+```python
 import tensorflow as tf
 
 hello = tf.constant('Hello, TensorFlow!')
@@ -157,7 +157,7 @@ sess = tf.Session()
 print(sess.run(hello))
 ```
 ## (Optional) Install Keras  
-```python
+```bash
 pip3 install keras --user
 ```
 Test in python script:  
