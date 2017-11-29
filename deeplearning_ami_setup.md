@@ -132,7 +132,7 @@ virtualenv --system-site-packages -p python3 **tensorflow**
 source ~/tensorflow/bin/activate  
 ```
 ```bash
-pip3 install --upgrade tensorflow-gpu  
+pip3 install --upgrade tensorflow-gpu --user
 ```
 Then test the installation with the following python script:  
 ```bash
@@ -146,7 +146,7 @@ print(sess.run(hello))
 ```
 ## (Optional) Install Keras  
 ```bash
-pip3 install keras
+pip3 install keras --user
 ```
 Test in python script:  
 ```bash
