@@ -2,6 +2,10 @@ This tutorial aims to configure a Deep Learning AMI on AWS from a basic Ubuntu i
 
 I may try to adapt it for an installation on a __local__ ubuntu distribution. In particular this second case requires to shut down lightdm during the CUDA installation part! [(see here until step 14)](https://kislayabhi.github.io/Installing_CUDA_with_Ubuntu/)  
 
+##### Table of Contents  
+[Basic AMI Configuration](#basic-ami-configuration)  
+[Deep Learning tools installation](#deep-learning-tools-installation)  
+
 # Basic AMI configuration
 
 Select the **Ubuntu Server 16.04 LTS (HVM), SSD Volume Type - ami-df8406b0** AMI
@@ -60,6 +64,8 @@ You can then launch jupyter notebook and access it with the public ip of the AWS
 jupyter notebook
 ```
 https://PUBLIC_IP:8888 then confirm security
+
+***
 
 # Deep Learning tools installation
 
