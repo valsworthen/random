@@ -86,7 +86,7 @@ nvidia-smi
 ```
 ### Download and install Cuda:  
 CUDA is a large file to download (~1.5Gb)  
-You can find the download link for the appropriate version here : https://developer.nvidia.com/cuda-downloads  
+You can find the download link for the appropriate version [here](https://developer.nvidia.com/cuda-downloads)  
 
 **Please note that Tensorflow 1.4 IS NOT compatible with CUDA 9**
 ```bash
@@ -107,8 +107,7 @@ nvcc --version
 ```
 ## Install cuDNN  
 cuDNN is a Nvidia library for deep learning  
-Subscription to the nvidia developer program is mandatory to download cuDNN. If you really need to download from command line, you can use the following wget line. Otherwise, just download the .tgz file from cuDNN website  
-https://developer.nvidia.com/rdp/cudnn-download  
+Subscription to the nvidia developer program is mandatory to download cuDNN. If you really need to download from command line, you can use the following wget line. Otherwise, just download the .tgz file from [cuDNN website](https://developer.nvidia.com/rdp/cudnn-download)  
 ```bash
 wget http://developer.download.nvidia.com/compute/redist/cudnn/v6.0/cudnn-8.0-linux-x64-v6.0.tgz  
 tar -xzvf cudnn-6.0-linux-x64-v4.0-prod.tgz  
