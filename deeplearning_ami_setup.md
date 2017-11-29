@@ -17,7 +17,7 @@ pip3 install scikit-image --user
 ```
 ## Configure Jupyter
 
-First install Jupyter fro python3  
+First install Jupyter for python3  
 ```bash
 pip3 install jupyter --user  
 ```
@@ -30,8 +30,7 @@ mkdir ssl
 cd ssl
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout "cert.key" -out "cert.pem" -batch
 ```
-Set password to access the notebooks
-Open ipython and type:
+Set password to access the notebooks. Open ipython and type:
 ```bash
 from IPython.lib import passwd
 passwd()
@@ -54,7 +53,7 @@ c.NotebookApp.ip = '*'  # Serve notebooks locally.
 c.NotebookApp.open_browser = False  # Do not open a browser window by default when using notebooks.
 c.NotebookApp.password = #Hashed password  
 ```
-You can then launch jupyter notebook and access it with the public ip of the AWS instance. Make sure to use HTTPS and confirm when security issue appears.  
+You can then launch jupyter notebook and access it with the public ip of the AWS instance. **Make sure to use HTTPS** and confirm when security issue appears.  
 ```bash
 jupyter notebook
 ```
@@ -86,7 +85,10 @@ Test if driver is correctly installed:
 nvidia-smi  
 ```
 ### Download and install Cuda:  
-CUDA is a large file to download (~1.5Gb)
+CUDA is a large file to download (~1.5Gb)  
+You can find the download link for the appropriate version here : https://developer.nvidia.com/cuda-downloads  
+
+**Please note that Tensorflow 1.4 IS NOT compatible with CUDA 9**
 ```bash
 wget LINK/TO/CUDA.RUN  
 sudo chmod +x cuda_VERSION_linux.run  
@@ -99,13 +101,14 @@ echo 'export CUDA_HOME=/usr/local/cuda' >> ~/.bashrc
 echo 'export PATH="/usr/local/cuda-8.0/bin:$PATH"' >> ~/.bashrc  
 ```
 Test if CUDA installation worked:   
-Tou may need to reboot or to source .bashrc  
+You may need to reboot or to source .bashrc  
 ```bash
 nvcc --version  
 ```
 ## Install cuDNN  
 cuDNN is a Nvidia library for deep learning  
 Subscription to the nvidia developer program is mandatory to download cuDNN. If you really need to download from command line, you can use the following wget line. Otherwise, just download the .tgz file from cuDNN website  
+https://developer.nvidia.com/rdp/cudnn-download  
 ```bash
 wget http://developer.download.nvidia.com/compute/redist/cudnn/v6.0/cudnn-8.0-linux-x64-v6.0.tgz  
 tar -xzvf cudnn-6.0-linux-x64-v4.0-prod.tgz  
@@ -135,6 +138,12 @@ pip3 install --upgrade tensorflow-gpu
 Then test the installation with the following python script:  
 ```bash
 import tensorflow as tf
+
+hello = tf.constant('Hello, TensorFlow!')
+# Start tf session
+sess = tf.Session()
+# Run the op
+print(sess.run(hello))
 ```
 ## (Optional) Install Keras  
 ```bash
