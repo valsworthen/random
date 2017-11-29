@@ -37,7 +37,7 @@ cd ssl
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout "cert.key" -out "cert.pem" -batch
 ```
 Set password to access the notebooks. Open ipython and type:
-```bash
+```python
 from IPython.lib import passwd
 passwd()
 ```
@@ -157,10 +157,10 @@ sess = tf.Session()
 print(sess.run(hello))
 ```
 ## (Optional) Install Keras  
-```bash
+```python
 pip3 install keras --user
 ```
 Test in python script:  
-```bash
+```python
 import keras
 ```
