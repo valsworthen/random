@@ -5,7 +5,7 @@ This tutorial aims to configure a Deep Learning AMI on AWS from a basic Ubuntu i
 Select the **Ubuntu Server 16.04 LTS (HVM), SSD Volume Type - ami-df8406b0** AMI
 
 ## General packages configuration
-
+```bash
 sudo apt update  
 
 sudo apt install python3-pip  
@@ -14,31 +14,35 @@ pip3 install --upgrade pip
 pip3 install pandas --user  
 pip3 install scipy --user  
 pip3 install scikit-image --user  
-
+```
 ## Configure Jupyter
 
 First install Jupyter fro python3  
+```bash
 pip3 install jupyter --user  
-
+```
 We need to configure the jupyter server. You can follow the instruction from the aws doc: http://docs.aws.amazon.com/mxnet/latest/dg/setup-jupyter-configure-server.html  
 
-In a nuthsell:  
+In a nuthsell:
+```bash
 cd
 mkdir ssl
 cd ssl
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout "cert.key" -out "cert.pem" -batch
-
+```
 Set password to access the notebooks
 Open ipython and type:
 ```bash
-	from IPython.lib import passwd
-	passwd()
-	exit
+from IPython.lib import passwd
+passwd()
 ```
-Copy and paste the hashed password, then create the config file for jupyter:   
 
-jupyter notebook --generate-config 
+Enter you password when prompted, then copy and paste the hashed password and exit the ipython console.  
+After that we create the config file for jupyter:   
+```bash
+jupyter notebook --generate-config
 vi ~/.jupyter/jupyter_notebook_config.py
+```
 
 Append the following lines at the end of the file:  
 c = get_config()  # Get the config object.
